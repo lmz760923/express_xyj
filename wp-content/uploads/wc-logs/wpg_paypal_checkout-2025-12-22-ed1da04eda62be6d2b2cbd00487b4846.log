@@ -1,0 +1,302 @@
+2025-12-22T09:25:32+00:00 INFO Get access token Request: https://api.sandbox.paypal.com/v1/oauth2/token/
+2025-12-22T09:25:32+00:00 INFO Response Code: 200
+2025-12-22T09:25:32+00:00 INFO Response Message: OK
+2025-12-22T09:25:32+00:00 INFO Response Body: Array
+(
+    [scope] => https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/subscriptions/confirm-payment https://uri.paypal.com/services/payments/client-payments-eligibility https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/vault/payment-tokens/readwrite https://uri.paypal.com/services/applications/webhooks https://uri.paypal.com/services/pricing/exchange-currency/read https://uri.paypal.com/services/credit/client-offer-presentment/read https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid Braintree:Vault https://uri.paypal.com/services/disputes/read-seller https://uri.paypal.com/services/payments/orders/client_sdk_orders_api https://uri.paypal.com/services/payments/refund https://uri.paypal.com/services/disputes/create https://uri.paypal.com/services/pricing/quote-exchange-rates/read https://uri.paypal.com/services/documents/disputes/download https://uri.paypal.com/services/billing-agreements https://uri.paypal.com/services/checkout/payment-resources https://uri.paypal.com/payments/payouts https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/subscriptions
+    [access_token] => A21AAJ1xx1bskVlL5bNDz8y7E9CmYz7-8ZstVtmADIO_Cm3Cfi5tfl7cKRBO75eZJlr7N8CiCjES7iERTuASFj8BS0Jd6LMAg
+    [token_type] => Bearer
+    [app_id] => APP-5GS74299TV312502K
+    [expires_in] => 32400
+    [nonce] => 2025-12-22T09:25:32Z0ceLMS1WqjLM3D011Cp1HyI_au1-Q2QMZQYXMFw5VvY
+)
+2025-12-22T09:25:32+00:00 INFO WooCommerce上的PayPal支付网关：9.0.53
+2025-12-22T09:25:32+00:00 INFO WooCommerce 版本：10.4.2
+2025-12-22T09:25:32+00:00 INFO Test Mode: Yes
+2025-12-22T09:25:32+00:00 INFO Action Name : Create order
+2025-12-22T09:25:32+00:00 INFO Order Request : Array
+(
+    [intent] => CAPTURE
+    [application_context] => Array
+        (
+            [brand_name] => 宏拓智能设备有限公司
+            [locale] => zh-CN
+            [landing_page] => NO_PREFERENCE
+            [shipping_preference] => SET_PROVIDED_ADDRESS
+            [user_action] => PAY_NOW
+            [return_url] => https://1.94.15.131/wc-api/PPCP_Paypal_Checkout_For_Woocommerce_Button_Manager?ppcp_action=ppcp_regular_capture&utm_nooverride=1
+            [cancel_url] => https://1.94.15.131/wc-api/PPCP_Paypal_Checkout_For_Woocommerce_Button_Manager?ppcp_action=cancel_order&utm_nooverride=1
+        )
+
+    [payment_method] => Array
+        (
+            [payee_preferred] => UNRESTRICTED
+        )
+
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => wc_order_J0yDrELS7wHoI
+                    [amount] => Array
+                        (
+                            [currency_code] => CNY
+                            [value] => 0.02
+                            [breakdown] => Array
+                                (
+                                    [item_total] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.02
+                                        )
+
+                                )
+
+                        )
+
+                    [invoice_id] => WC-PPCP343
+                    [custom_id] => {"order_id":343,"order_key":"wc_order_TVGA9NaQzSUQz"}
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => 测试商品
+                                    [category] => PHYSICAL_GOODS
+                                    [quantity] => 1
+                                    [unit_amount] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.01
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => 测试商品
+                                    [category] => PHYSICAL_GOODS
+                                    [quantity] => 1
+                                    [unit_amount] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.01
+                                        )
+
+                                )
+
+                        )
+
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => 李生 李
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 湖南省新化县
+                                    [admin_area_2] => 新化
+                                    [admin_area_1] => CN19
+                                    [postal_code] => 417621
+                                    [country_code] => CN
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [email_address] => sb-yyslv48068192@personal.example.com
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [address] => Array
+                (
+                    [address_line_1] => 湖南省新化县
+                    [admin_area_2] => 新化
+                    [admin_area_1] => CN19
+                    [postal_code] => 417621
+                    [country_code] => CN
+                )
+
+        )
+
+)
+2025-12-22T09:25:34+00:00 INFO Error Message : Array
+(
+    [name] => UNPROCESSABLE_ENTITY
+    [details] => Array
+        (
+            [0] => Array
+                (
+                    [issue] => CURRENCY_NOT_SUPPORTED
+                    [description] => Currency code is not currently supported. Please refer https://developer.paypal.com/docs/integration/direct/rest/currency-codes/ for list of supported currency codes.
+                )
+
+        )
+
+    [message] => The requested action could not be performed, semantically incorrect, or failed business validation.
+    [debug_id] => 3086e8a0238e7
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://developer.paypal.com/api/rest/reference/orders/v2/errors/#CURRENCY_NOT_SUPPORTED
+                    [rel] => information_link
+                )
+
+        )
+
+)
+2025-12-22T09:25:44+00:00 INFO WooCommerce上的PayPal支付网关：9.0.53
+2025-12-22T09:25:44+00:00 INFO WooCommerce 版本：10.4.2
+2025-12-22T09:25:44+00:00 INFO Test Mode: Yes
+2025-12-22T09:25:44+00:00 INFO Action Name : Create order
+2025-12-22T09:25:44+00:00 INFO Order Request : Array
+(
+    [intent] => CAPTURE
+    [application_context] => Array
+        (
+            [brand_name] => 宏拓智能设备有限公司
+            [locale] => zh-CN
+            [landing_page] => NO_PREFERENCE
+            [shipping_preference] => GET_FROM_FILE
+            [user_action] => PAY_NOW
+            [return_url] => https://1.94.15.131/wc-api/PPCP_Paypal_Checkout_For_Woocommerce_Button_Manager?ppcp_action=ppcp_regular_capture&utm_nooverride=1
+            [cancel_url] => https://1.94.15.131/wc-api/PPCP_Paypal_Checkout_For_Woocommerce_Button_Manager?ppcp_action=cancel_order&utm_nooverride=1
+        )
+
+    [payment_method] => Array
+        (
+            [payee_preferred] => UNRESTRICTED
+        )
+
+    [purchase_units] => Array
+        (
+            [0] => Array
+                (
+                    [reference_id] => wc_order_ogV31JTpWnTrN
+                    [amount] => Array
+                        (
+                            [currency_code] => CNY
+                            [value] => 0.02
+                            [breakdown] => Array
+                                (
+                                    [item_total] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.02
+                                        )
+
+                                )
+
+                        )
+
+                    [invoice_id] => wc_order_ogV31JTpWnTrN
+                    [custom_id] => {"order_id":"wc_order_ogV31JTpWnTrN","order_key":"wc_order_ogV31JTpWnTrN"}
+                    [items] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => 测试商品
+                                    [category] => PHYSICAL_GOODS
+                                    [quantity] => 1
+                                    [unit_amount] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.01
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => 测试商品
+                                    [category] => PHYSICAL_GOODS
+                                    [quantity] => 1
+                                    [unit_amount] => Array
+                                        (
+                                            [currency_code] => CNY
+                                            [value] => 0.01
+                                        )
+
+                                )
+
+                        )
+
+                    [shipping] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [full_name] => 李生 李
+                                )
+
+                            [address] => Array
+                                (
+                                    [address_line_1] => 湖南省新化县
+                                    [admin_area_2] => 新化
+                                    [admin_area_1] => CN19
+                                    [postal_code] => 417621
+                                    [country_code] => CN
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [payer] => Array
+        (
+            [name] => Array
+                (
+                    [given_name] => John
+                    [surname] => Doe
+                )
+
+            [email_address] => sb-yyslv48068192@personal.example.com
+            [address] => Array
+                (
+                    [address_line_1] => 湖南省新化县
+                    [admin_area_2] => 新化
+                    [admin_area_1] => CN19
+                    [postal_code] => 417621
+                    [country_code] => CN
+                )
+
+        )
+
+)
+2025-12-22T09:25:46+00:00 INFO Error Message : Array
+(
+    [name] => UNPROCESSABLE_ENTITY
+    [details] => Array
+        (
+            [0] => Array
+                (
+                    [issue] => CURRENCY_NOT_SUPPORTED
+                    [description] => Currency code is not currently supported. Please refer https://developer.paypal.com/docs/integration/direct/rest/currency-codes/ for list of supported currency codes.
+                )
+
+        )
+
+    [message] => The requested action could not be performed, semantically incorrect, or failed business validation.
+    [debug_id] => 4480fc533faaf
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://developer.paypal.com/api/rest/reference/orders/v2/errors/#CURRENCY_NOT_SUPPORTED
+                    [rel] => information_link
+                )
+
+        )
+
+)

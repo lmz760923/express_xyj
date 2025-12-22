@@ -1,0 +1,248 @@
+2025-12-19T00:52:09+00:00 DEBUG #2542 - [New Request] GET /wp-admin/admin.php
+2025-12-19T00:52:09+00:00 DEBUG #2542 - GET https://api.woocommerce.com/integrations/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T00:52:09+00:00 WARNING #2542 - [Error] Not Found CONTEXT: {"args":{"method":"GET","headers":{"Authorization":"Bearer token","Content-Type":"application/json"}},"response":{"headers":{},"body":"{"statusCode":404,"error":"Not Found","message":"Not Found"}","response":{"code":404,"message":"Not Found"},"cookies":[],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}}
+2025-12-19T00:52:13+00:00 DEBUG #3355 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T00:52:13+00:00 DEBUG #3355 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T00:53:34+00:00 DEBUG #5146 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T00:53:34+00:00 INFO #5146 - Generating onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T00:53:35+00:00 DEBUG #5146 - POST https://api.woocommerce.com/integrations/ppc/v2/customer/partner-referrals
+Request Body: {"partner_config_override":{"return_url":"http:\/\/1.94.15.131\/wp-admin\/admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&ppcpToken=eyJrIjoicHJvZHVjdGlvbi1hZHZhbmNlZF92YXVsdGluZy1wcGNwLXVzZWNhcmRwYXltZW50cyIsInUiOjEsImgiOiIwZDE3ZTU4MzcyNmNmMjg0NDdmNmIwMzhiNDZlZmU4ZiJ9","return_url_description":"Return to your shop.","show_add_credit_card":true},"products":["PPCP","ADVANCED_VAULTING"],"legal_consents":[{"type":"SHARE_DATA_CONSENT","granted":true}],"operations":[{"operation":"API_INTEGRATION","api_integration_preference":{"rest_api_integration":{"integration_method":"PAYPAL","integration_type":"FIRST_PARTY","first_party_details":{"features":["PAYMENT","REFUND","ADVANCED_TRANSACTIONS_SEARCH","TRACKING_SHIPMENT_READWRITE","BILLING_AGREEMENT","VAULT","FUTURE_PAYMENT"],"seller_nonce":"a1233wtergfsdt4365tzrshgfbaewa36AGa1233wtergfsdt4365tzrshgfbaewa36AG"}}}}]}
+Response Debug ID: 6a9dd182e0996
+Response: Array
+(
+    [code] => 201
+    [message] => Created
+)
+
+2025-12-19T00:53:53+00:00 DEBUG #5976 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T00:53:53+00:00 DEBUG #7370 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T00:53:53+00:00 DEBUG #5976 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T00:53:53+00:00 DEBUG #7370 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T00:53:53+00:00 INFO #5976 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T00:53:53+00:00 INFO #7370 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T03:59:43+00:00 DEBUG #1337 - [New Request] GET /wp-admin/admin.php
+2025-12-19T03:59:43+00:00 DEBUG #1337 - GET https://api.woocommerce.com/integrations/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T03:59:43+00:00 WARNING #1337 - [Error] Not Found CONTEXT: {"args":{"method":"GET","headers":{"Authorization":"Bearer token","Content-Type":"application/json"}},"response":{"headers":{},"body":"{"statusCode":404,"error":"Not Found","message":"Not Found"}","response":{"code":404,"message":"Not Found"},"cookies":[],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}}
+2025-12-19T03:59:49+00:00 DEBUG #6295 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T03:59:49+00:00 DEBUG #6295 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T03:59:49+00:00 DEBUG #1897 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T03:59:49+00:00 DEBUG #1897 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T03:59:49+00:00 INFO #1897 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:00:00+00:00 DEBUG #1535 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T04:00:00+00:00 DEBUG #1535 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:00:00+00:00 INFO #1535 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:00:00+00:00 DEBUG #5467 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T04:00:00+00:00 DEBUG #5467 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:00:00+00:00 INFO #5467 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:05:14+00:00 DEBUG #8708 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T04:05:14+00:00 DEBUG #8708 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T04:05:15+00:00 DEBUG #6421 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T04:05:15+00:00 DEBUG #6421 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T04:05:15+00:00 INFO #6421 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:32+00:00 DEBUG #7653 - [New Request] GET /wp-admin/admin.php
+2025-12-19T11:09:32+00:00 DEBUG #7653 - GET https://api.woocommerce.com/integrations/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:09:32+00:00 WARNING #7653 - [Error] Not Found CONTEXT: {"args":{"method":"GET","headers":{"Authorization":"Bearer token","Content-Type":"application/json"}},"response":{"headers":{},"body":"{"statusCode":404,"error":"Not Found","message":"Not Found"}","response":{"code":404,"message":"Not Found"},"cookies":[],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}}
+2025-12-19T11:09:35+00:00 DEBUG #3355 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:09:35+00:00 DEBUG #3355 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:09:35+00:00 DEBUG #9618 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:09:35+00:00 DEBUG #9618 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:35+00:00 INFO #9618 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:44+00:00 DEBUG #4480 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:09:44+00:00 DEBUG #4480 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:44+00:00 INFO #4480 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:44+00:00 DEBUG #5308 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:09:44+00:00 DEBUG #5308 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:09:44+00:00 INFO #5308 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:39+00:00 DEBUG #7889 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:27:39+00:00 DEBUG #7889 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:27:39+00:00 DEBUG #3007 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:27:39+00:00 DEBUG #3007 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:39+00:00 INFO #3007 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:43+00:00 DEBUG #6287 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:27:43+00:00 DEBUG #6287 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:43+00:00 INFO #6287 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:43+00:00 DEBUG #4633 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:27:43+00:00 DEBUG #4633 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:27:43+00:00 INFO #4633 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:35:57+00:00 DEBUG #6709 - [New Request] POST /wp-json/wp/v2/plugins/woocommerce-paypal-payments/woocommerce-paypal-payments
+2025-12-19T11:35:57+00:00 DEBUG #6709 - Webhook lock acquired for 'unregister'.
+2025-12-19T11:35:57+00:00 DEBUG #6709 - Webhook operation 'unregister' started.
+2025-12-19T11:35:58+00:00 DEBUG #6709 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:35:58+00:00 ERROR #6709 - Failed to delete webhooks: [Error] Not Found
+2025-12-19T11:35:58+00:00 INFO #6709 - Webhooks deleted.
+2025-12-19T11:35:58+00:00 DEBUG #6709 - Webhook lock released for 'unregister'.
+2025-12-19T11:36:38+00:00 DEBUG #5172 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:36:38+00:00 DEBUG #5172 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:36:38+00:00 DEBUG #4205 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:36:38+00:00 DEBUG #4205 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:36:38+00:00 INFO #4205 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:38:59+00:00 DEBUG #8930 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:38:59+00:00 DEBUG #8930 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:38:59+00:00 DEBUG #9721 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:38:59+00:00 DEBUG #9721 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:38:59+00:00 INFO #9721 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:41:40+00:00 DEBUG #2867 - [New Request] POST /wp-json/wp/v2/plugins/woocommerce-paypal-payments/woocommerce-paypal-payments
+2025-12-19T11:41:40+00:00 DEBUG #2867 - Webhook lock acquired for 'unregister'.
+2025-12-19T11:41:40+00:00 DEBUG #2867 - Webhook operation 'unregister' started.
+2025-12-19T11:41:41+00:00 DEBUG #2867 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:41:41+00:00 ERROR #2867 - Failed to delete webhooks: [Error] Not Found
+2025-12-19T11:41:41+00:00 INFO #2867 - Webhooks deleted.
+2025-12-19T11:41:41+00:00 DEBUG #2867 - Webhook lock released for 'unregister'.
+2025-12-19T11:47:07+00:00 DEBUG #1012 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:47:07+00:00 DEBUG #1012 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:47:07+00:00 DEBUG #1496 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:47:07+00:00 DEBUG #1496 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:47:07+00:00 INFO #1496 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:47:26+00:00 DEBUG #4264 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T11:47:26+00:00 DEBUG #4264 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:47:26+00:00 DEBUG #2559 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T11:47:26+00:00 DEBUG #2559 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:47:26+00:00 INFO #2559 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T11:47:52+00:00 DEBUG #1081 - [New Request] POST /wp-json/wp/v2/plugins/woocommerce-paypal-payments/woocommerce-paypal-payments
+2025-12-19T11:47:52+00:00 DEBUG #1081 - Webhook lock acquired for 'unregister'.
+2025-12-19T11:47:52+00:00 DEBUG #1081 - Webhook operation 'unregister' started.
+2025-12-19T11:47:53+00:00 DEBUG #1081 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T11:47:53+00:00 ERROR #1081 - Failed to delete webhooks: [Error] Not Found
+2025-12-19T11:47:53+00:00 INFO #1081 - Webhooks deleted.
+2025-12-19T11:47:53+00:00 DEBUG #1081 - Webhook lock released for 'unregister'.
+2025-12-19T12:20:31+00:00 DEBUG #3055 - [New Request] GET /wp-admin/admin.php
+2025-12-19T12:20:31+00:00 DEBUG #3055 - GET https://api.woocommerce.com/integrations/ppc/v1/customer/partners/K8SKZ36LQBWXJ/merchant-integrations/
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T12:20:31+00:00 WARNING #3055 - [Error] Not Found CONTEXT: {"args":{"method":"GET","headers":{"Authorization":"Bearer token","Content-Type":"application/json"}},"response":{"headers":{},"body":"{"statusCode":404,"error":"Not Found","message":"Not Found"}","response":{"code":404,"message":"Not Found"},"cookies":[],"filename":null,"http_response":{"data":null,"headers":null,"status":null}}}
+2025-12-19T12:20:36+00:00 DEBUG #2019 - [New Request] GET /wp-json/wc/v3/wc_paypal/webhooks
+2025-12-19T12:20:36+00:00 DEBUG #2019 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Response: Array
+(
+    [code] => 404
+    [message] => Not Found
+)
+
+Response Body: {"statusCode":404,"error":"Not Found","message":"Not Found"}
+2025-12-19T12:20:36+00:00 DEBUG #2753 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T12:20:36+00:00 DEBUG #2753 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:20:36+00:00 INFO #2753 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:20:38+00:00 DEBUG #6806 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T12:20:38+00:00 DEBUG #6806 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:20:38+00:00 INFO #6806 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:20:39+00:00 DEBUG #7225 - [New Request] POST /wp-json/wc/v3/wc_paypal/login_link
+2025-12-19T12:20:39+00:00 DEBUG #7225 - Loaded onboarding URL from cache: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:20:39+00:00 INFO #7225 - Using cached onboarding URL for: production-advanced_vaulting-ppcp-usecardpayments
+2025-12-19T12:31:20+00:00 DEBUG #8201 - [New Request] GET /wp-admin/plugins.php
+2025-12-19T12:31:20+00:00 DEBUG #8201 - Webhook lock acquired for 'unregister'.
+2025-12-19T12:31:20+00:00 DEBUG #8201 - Webhook operation 'unregister' started.
+2025-12-19T12:31:30+00:00 DEBUG #8201 - GET https://api.woocommerce.com/integrations/ppc/v1/notifications/webhooks
+Request failed. WP error message: cURL error 28: Operation timed out after 10000 milliseconds with 0 out of 0 bytes received
+2025-12-19T12:31:30+00:00 ERROR #8201 - Failed to delete webhooks: Not able to load webhooks list.
+2025-12-19T12:31:30+00:00 INFO #8201 - Webhooks deleted.
+2025-12-19T12:31:30+00:00 DEBUG #8201 - Webhook lock released for 'unregister'.
