@@ -2,7 +2,9 @@
     <h1>虎皮椒支付设置</h1>
     
     <form method="post" action="options.php">
-        <?php settings_fields('hupijiao_settings'); ?>
+        <?php settings_fields('hupijiao_settings'); 
+         
+        ?>
         
         <table class="form-table">
             <tr>
@@ -34,6 +36,10 @@
             </tr>
         </table>
         
-        <?php submit_button(); ?>
+        <?php submit_button(); 
+        ob_start();
+        submit_button();
+        error_log(ob_get_clean());
+        ?>
     </form>
 </div>

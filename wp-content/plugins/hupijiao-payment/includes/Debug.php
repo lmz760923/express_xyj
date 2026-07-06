@@ -53,7 +53,7 @@ class Debug {
         if (!current_user_can('manage_options')) {
             return;
         }
-        
+   
         $results = self::check_gateway_status();
         
         echo '<div class="notice notice-info">';

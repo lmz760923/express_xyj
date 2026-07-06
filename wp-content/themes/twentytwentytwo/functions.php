@@ -48,7 +48,6 @@ if ( ! function_exists( 'twentytwentytwo_styles' ) ) :
 
 		$suffix = SCRIPT_DEBUG ? '' : '.min';
 		$src    = 'style' . $suffix . '.css';
-
 		wp_enqueue_style(
 			'twentytwentytwo-style',
 			get_parent_theme_file_uri( $src ),
@@ -80,3 +79,19 @@ add_action('wp',function(){
 */
 
 //echo( __FUNCTION__);
+/*
+add_action('wp_footer',function(){
+	if (is_checkout()){
+		if (class_exists('Hupijiao_WC_Gateway')){
+			$gateways=WC()->payment_gateways->payment_gateways();
+			echo '<pre>';
+			print_r($gateways);
+			echo '</pre>';
+		}
+		
+		
+	}
+});*/
+
+
+

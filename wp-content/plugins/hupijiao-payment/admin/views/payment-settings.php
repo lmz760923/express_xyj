@@ -64,16 +64,18 @@ $success_url = get_option('hupijiao_success_url', home_url('/payment/success'));
 <div class="wrap">
     <h1><span class="dashicons dashicons-money-alt"></span> 虎皮椒支付设置</h1>
     
-    <div class="nav-tab-wrapper">
+    <!--div class="nav-tab-wrapper">
         <a href="<?php echo admin_url('admin.php?page=hupijiao-payment'); ?>" class="nav-tab">基本设置</a>
         <a href="<?php echo admin_url('admin.php?page=hupijiao-payment-settings'); ?>" class="nav-tab nav-tab-active">支付设置</a>
         <a href="<?php echo admin_url('admin.php?page=hupijiao-orders'); ?>" class="nav-tab">订单管理</a>
-    </div>
+    </div-->
     
     <div class="hupijiao-settings-container">
         <div class="hupijiao-settings-main">
             <form method="post" action="">
-                <?php wp_nonce_field('hupijiao_payment_settings_update'); ?>
+                <?php wp_nonce_field('hupijiao_payment_settings_update'); 
+                
+                ?>
                 
                 <!-- 支付方式设置 -->
                 <div class="hupijiao-card">
@@ -215,7 +217,7 @@ $success_url = get_option('hupijiao_success_url', home_url('/payment/success'));
                 <h3><span class="dashicons dashicons-admin-tools"></span> 回调测试</h3>
                 <p>测试异步通知是否正常工作：</p>
                 <button type="button" class="button button-secondary" id="test-notify">测试回调</button>
-                <div id="test-result" style="margin-top: 10px; display: none;"></div>
+                <div id="test-result" style="margin-top: 10px; display: none;overflow:auto"></div>
             </div>
             
             <!-- 订单统计 -->
@@ -355,11 +357,7 @@ jQuery(document).ready(function($) {
                 nonce: '<?php echo wp_create_nonce('hupijiao_test'); ?>'
             },
             success: function(response) {
-                if (response.success) {
-                    resultDiv.html('<div class="notice notice-success"><p>' + response.data + '</p></div>');
-                } else {
-                    resultDiv.html('<div class="notice notice-error"><p>' + response.data + '</p></div>');
-                }
+                resultDiv.html('<textarea rows="6" style="width:100%">' + JSON.stringify(response,null,2) + '</textarea>');
                 resultDiv.show();
             },
             error: function() {

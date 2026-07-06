@@ -2,6 +2,10 @@
 /*
 Plugin Name:HTSBCOMPANY PLUGIN
 */
+
+define('htsbcompany_path',plugin_dir_path(__FILE__));
+define('htsbcompany_url',plugin_dir_url(__FILE__));
+
 add_action('init', function() {
     register_nav_menus(array(
         'primary-menu' => __('主菜单', 'enterprise-theme'),
@@ -9,22 +13,10 @@ add_action('init', function() {
     ));
 });
 
-
-
-/*
-add_theme_support('post-thumbnails');
-add_theme_support('title-tag');
-add_theme_support('custom-logo');
-add_theme_support('widgets');
-
-
-
-
-
-
+// 注册产品自定义文章类型（若 WooCommerce 已注册 product，则跳过）
 add_action('init', function() {
-    register_post_type('product',
-        array(
+    if (!post_type_exists('product')) {
+        register_post_type('product', array(
             'labels' => array(
                 'name' => __('产品', 'enterprise-theme'),
                 'singular_name' => __('产品', 'enterprise-theme'),
@@ -38,89 +30,27 @@ add_action('init', function() {
                 'not_found_in_trash' => __('回收站中无产品', 'enterprise-theme')
             ),
             'public' => true,
-            'has_archive' => true,
+            'has_archive' => false,
             'menu_icon' => 'dashicons-cart',
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'comments'),
             'rewrite' => array('slug' => 'products'),
             'show_in_rest' => true,
-        )
-    );
-    
-  
-    register_taxonomy(
-        'product_category',
-        'product',
-        array(
-            'label' => __('产品分类', 'enterprise-theme'),
+        ));
+    }
+
+    if (!taxonomy_exists('product_cat')) {
+        register_taxonomy('product_cat', 'product', array(
+            'labels' => array(
+                'name' => __('产品分类', 'enterprise-theme'),
+                'singular_name' => __('产品分类', 'enterprise-theme')
+            ),
             'rewrite' => array('slug' => 'product-category'),
             'hierarchical' => true,
             'show_in_rest' => true
-        )
-    );
+        ));
+    }
 });
 
-
-
-add_action('init', function() {
-    register_post_type('service',
-        array(
-            'labels' => array(
-                'name' => __('service', 'enterprise-theme'),
-                'singular_name' => __('service', 'enterprise-theme'),
-                'add_new' => __('add new service', 'enterprise-theme'),
-                'add_new_item' => __('new service item', 'enterprise-theme'),
-                'edit_item' => __('edit service', 'enterprise-theme'),
-                'new_item' => __('new service', 'enterprise-theme'),
-                'view_item' => __('view service', 'enterprise-theme'),
-                'search_items' => __('search services', 'enterprise-theme'),
-                'not_found' => __('not found service', 'enterprise-theme'),
-                'not_found_in_trash' => __('not found in trash', 'enterprise-theme')
-            ),
-            'public' => true,
-            'has_archive' => true,
-            'menu_icon' => 'dashicons-cart',
-            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
-            'rewrite' => array('slug' => 'services'),
-            'show_in_rest' => true,
-        )
-    );
-    
-
-    register_taxonomy(
-        'service_category',
-        'service',
-        array(
-            'label' => __('service category', 'enterprise-theme'),
-            'rewrite' => array('slug' => 'service-category'),
-            'hierarchical' => true,
-            'show_in_rest' => true
-        )
-    );
-});
-
-
-add_action('widgets_init', function() {
-    register_sidebar(array(
-        'name' => __('主侧边栏', 'enterprise-theme'),
-        'id' => 'main-sidebar',
-        'description' => __('主内容区侧边栏', 'enterprise-theme'),
-        'before_widget' => '<div class="widget">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>'
-    ));
-    
-    register_sidebar(array(
-        'name' => __('页脚侧边栏', 'enterprise-theme'),
-        'id' => 'footer-sidebar',
-        'description' => __('页脚区域侧边栏', 'enterprise-theme'),
-        'before_widget' => '<div class="footer-widget">',
-        'after_widget' => '</div>',
-        'before_title' => '<h4 class="footer-widget-title">',
-        'after_title' => '</h4>'
-    ));
-});
-*/
 
 // 处理联系我们表单提交
 add_action('template_redirect', function() {
@@ -218,7 +148,7 @@ function handle_my_ajax_request(){
     else{
     wp_send_json_error([
        
-        'return'=>$result,
+        'return'=>$_POST['data'],
     ]);
     }
 }
@@ -240,8 +170,8 @@ function enqueue_theme_scripts() {
     ');
 	
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-	
-	
+    //wp_enqueue_style('font-awesome', htsbcompany_url . 'font-awesome.min.css'); // 添加time()防止缓存
+
     
     //wp_enqueue_script('theme-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0', true);
     wp_enqueue_script('theme-script', plugins_url('js/main.js',__FILE__), array('jquery'), '1.0', true);
@@ -458,9 +388,107 @@ function handle_category_url_param($query) {
 }
 add_action('pre_get_posts', 'handle_category_url_param');
 
+add_shortcode('all_products','all_products');
+function all_products(){
+    ob_start();?>
+    <!-- 产品分类过滤 -->
+            <div class="product-filters">
+                <!--h3>产品分类</h3-->
+                <ul class="category-filter">
+                    <li><a href="#" data-category="all" class="active">全部产品</a></li>
+                    <?php
+                    $categories = get_terms(array(
+                        'taxonomy' => 'product_cat',
+                        'hide_empty' => true
+                    ));
+                    foreach ($categories as $category):
+                    ?><li><a href="#" data-category="<?php echo $category->slug;?>"><?php echo $category->name;?>
+                        </a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            
+            <!-- 产品列表 -->
+            <div class="products-list" id="products-container">
+                <?php
+                $products = new WP_Query(array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 3,
+                    'paged' => get_query_var('paged') ? get_query_var('paged') : 1
+                ));
+                
+                if ($products->have_posts()):
+                ?>
+                    <div class="products-grid">
+                        <?php while ($products->have_posts()): $products->the_post(); ?>
+                            <div class="product-item" 
+                                 data-categories="<?php 
+                                    $cats = get_the_terms(get_the_ID(), 'product_cat');
+                                    if ($cats) {
+                                        $cat_slugs = array();
+                                        foreach ($cats as $cat) {
+                                            $cat_slugs[] = $cat->slug;
+                                        }
+                                        echo implode(' ', $cat_slugs);
+                                    }
+                                 ?>">
+                                <?php if (has_post_thumbnail()): ?>
+                                    <div class="product-thumbnail">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php the_post_thumbnail('medium'); ?>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <h3 class="product-title">
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </h3>
+                                
+                                <div class="product-excerpt">
+                                    <?php the_excerpt(); ?>
+                                </div>
+                                
+                                <div class="product-categories">
+                                    <?php
+                                    $categories = get_the_terms(get_the_ID(), 'product_cat');
+                                    if ($categories):
+                                        foreach ($categories as $category):
+                                    ?>
+                                        <span class="product-category"><?php echo $category->name; ?></span>
+                                    <?php
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                </div>
+								<a href="<?php the_permalink(); ?>" class="btn-view">查看详情</a>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                    
+                    <div class="pagination ajax-pagination">
+					
+                        <?php
+                        echo paginate_links(array(
+                            'total' => $products->max_num_pages,
+                            'current' => max(1, get_query_var('paged')),
+                            'prev_text' => '« 上一页',
+                            'next_text' => '下一页 »',
+                            'type' => 'list',
+                        ));
+                        ?>
+                    </div>
+                <?php
+                    
+                    wp_reset_postdata();
+                else:
+                ?>
+                    <p>暂无产品。</p>
+                <?php endif; ?>
+            </div>
+    <?php return ob_get_clean();
+}
 
 
-// 在functions.php中添加短代码
 add_shortcode('featured_products_slider', 'featured_products_slider_func');
 function featured_products_slider_func() {
     ob_start();?>
@@ -554,26 +582,18 @@ function featured_products_slider_func() {
         <!--<div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>-->
     </div>
-    
-    <?php if ($featured_products->have_posts()): ?>
-    <div class="view-all-products">
-        <a href="/产品" class="btn-view-all">
-            查看所有产品 <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-    <?php endif; ?>
+   
 </section>
 
         
     <?php
    
-    //wp_enqueue_style('swiper-css', get_template_directory_uri() . '/swiper-bundle.min.css', array(), '8.4.5');
+    
     wp_enqueue_style('swiper-css', plugins_url('swiper-bundle.min.css',__FILE__), array(), '8.4.5');    
         
-        //wp_enqueue_script('swiper-js', get_template_directory_uri() .'/js/swiper-bundle.min.js', array(), '8.4.5', true);
-        wp_enqueue_script('swiper-js', plugins_url('js/swiper-bundle.min.js',__FILE__), array(), '8.4.5', true);
+    wp_enqueue_script('swiper-js', plugins_url('js/swiper-bundle.min.js',__FILE__), array(), '8.4.5', true);
         
-        wp_add_inline_script('swiper-js', '
+    wp_add_inline_script('swiper-js', '
             document.addEventListener("DOMContentLoaded", function() {
                 // 等待页面完全加载
                 if (typeof Swiper !== "undefined") {
@@ -635,4 +655,118 @@ function featured_products_slider_func() {
     
     wp_reset_postdata();
     return ob_get_clean();
+}
+
+/*
+add_action('woocommerce_after_checkout_form',function(){
+    if (is_checkout()){
+        echo '<div class="back-to-cart-checkout" stle="text-align:center;margin:10px 0;">';
+        echo '<a href="'. esc_url(wc_get_page_permalink('cart')) . '"class="button alt"><-' . esc_html__('返回购物车','enterprise-theme') . '</a>';
+        echo '</div>';
+    }
+},5);
+*/
+
+/*
+add_action('init',function(){
+    global $wp_rewrite;
+    add_rewrite_rule('^products/?$','index.php?my_page=page-products.php','top');
+    add_rewrite_rule('^about_us/?$','index.php?my_page=page-about.php','top');
+    add_rewrite_rule('^form_submit/?$','index.php?my_page=page-contact.php','top');
+    add_rewrite_rule('^/?$','index.php?my_page=page-front.php','top');
+
+
+});
+*/
+
+register_activation_hook( __FILE__, function(){
+    flush_rewrite_rules();
+} );
+
+register_deactivation_hook( __FILE__, function(){
+    flush_rewrite_rules();
+} );
+
+
+
+
+add_filter('template_include',function($template){
+    
+    global $wp_filter;
+    global $wp_query;
+    /*
+    echo '<pre>';
+    print_r($wp_query);
+    echo '</pre>';
+    */
+    
+  
+    $page=get_query_var('pagename');
+
+    if ($page)
+    { 
+        $mytemplate=htsbcompany_path . 'templates/' . $page .'.php';
+ 
+        if (file_exists($mytemplate)){
+            
+        return $mytemplate;
+        }
+    }
+
+    
+
+    if (is_front_page()){
+        
+        $mytemplate=htsbcompany_path . 'templates/page-front.php';
+ 
+        if (file_exists($mytemplate)){
+            
+        return $mytemplate;
+        }
+    }
+    
+    return $template;
+    
+    }
+    
+);
+
+
+add_action('wp_footer',function($wp){
+    global $wp_query;
+    /*
+    echo '<pre>';
+    echo 'request:<br>';
+    print_r($wp->request);
+    echo '<br>';
+    echo 'matched_rule:<br>';
+    print_r($wp->matched_rule);
+    echo '<br>';
+    echo 'query_vars:<br>';
+    print_r($wp->query_vars);
+    echo 'wp:<br>';
+    print_r($wp);
+    echo '</pre>';
+    */
+    /*
+    echo '<pre>';
+    print_r(get_option('rewrite_rules'));
+    echo '</pre>';
+    */
+    if (current_user_can( 'manage_options' )){
+    echo '<pre>';
+    print_r($wp_query);
+    echo '</pre>';
+    }
+    
+},1);
+
+//起初缩略图的width  height
+add_filter('post_thumbnail_html','remove_width_height_attribute');
+add_filter('image_send_to_editor','remove_width_height_attribute');
+
+
+function remove_width_height_attribute($html){
+ $html=preg_replace('/(width|height)="\d*"\s/',"",$html);
+ return $html;
 }

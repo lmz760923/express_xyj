@@ -44,10 +44,10 @@ if (!function_exists('getenv_docker')) {
 define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME', 'wordpress') );
 
 /** Database username */
-define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'example username') );
+define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'wordpress') );
 
 /** Database password */
-define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password') );
+define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'DGcloAikXaFP5C!') );
 
 /**
  * Docker image fallback values above are sourced from the official WordPress installation wizard:
@@ -56,7 +56,7 @@ define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password'
  */
 
 /** Database hostname */
-define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'mysql') );
+define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', '127.0.0.1') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8') );
@@ -94,7 +94,7 @@ define( 'NONCE_SALT',       getenv_docker('WORDPRESS_NONCE_SALT',       '1d7e1e6
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
+$table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'xh_');
 
 /**
  * For developers: WordPress debugging mode.
@@ -114,6 +114,14 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  define('WP_DEBUG_DISPLAY',false);
 /* Add any custom values between this line and the "stop editing" line. */
 
+define('MINIPROGRAM_API_TOKEN','your_secure_token');
+define('JWT_AUTH_SECRET_KEY','your-jwt-secret-key-123456');
+define('JWT_AUTH_CORS_ENABLE',true);
+/*
+add_filter('woocommerce_rest_check_permissions',function($permission){
+	return true;
+},10,4);
+*/
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false) {
@@ -134,3 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+define('FS_METHOD', 'direct');
+define('WP_TEMP_DIR', ABSPATH . 'wp-content/tmp');
+define('WP_CONTENT_DIR', ABSPATH . 'wp-content');

@@ -18,6 +18,7 @@ define('HUPIJIAO_VERSION', '1.0.0');
 define('HUPIJIAO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('HUPIJIAO_PLUGIN_URL', plugin_dir_url(__FILE__));
 
+
 // 自动加载类
 spl_autoload_register(function ($class) {
     $prefix = 'Hupijiao\\';
@@ -53,15 +54,21 @@ class Hupijiao_Payment_Plugin {
     }
     
     public function load_hpj(){
-        if (class_exists('WooCommerce'))
+        if (class_exists('WooCommerce')){
+        
         require_once HUPIJIAO_PLUGIN_DIR . 'includes/WC_Gateway.php';
+       
+        }
+       
+       
     }
     private function init_hooks() {
+        
         // 激活/停用插件
         register_activation_hook(__FILE__, array($this, 'activate'));
         register_deactivation_hook(__FILE__, array($this, 'deactivate'));
         
-
+        
         add_action('plugins_loaded', array($this, 'load_hpj'));
         // 初始化
         add_action('plugins_loaded', array($this, 'init'));
@@ -79,6 +86,32 @@ class Hupijiao_Payment_Plugin {
                 }
             }
         });
+/*
+        add_action('init',function(){
+            echo '<pre>';
+            print_r(get_option('rewrite_rules'));
+            echo '</pre>';
+        });
+        */
+/*
+        add_filter('query_vars',function($vars){
+            echo '<pre>';
+            print_r($vars);
+            foreach ($vars as $key=>$value){
+                echo $key . '=>' . $value . ':' .  get_query_var($value) . '<br>';
+            }
+            echo '</pre>';
+            return $vars;
+        });
+*/
+
+/*
+        add_filter('template_include',function($template){
+            echo $template;
+            return $template;
+        });
+*/
+
         
     }
 
@@ -98,7 +131,7 @@ class Hupijiao_Payment_Plugin {
     }
 
     // 新增方法：强制刷新网关
-public function ajax_force_refresh() {
+    public function ajax_force_refresh() {
     check_ajax_referer('hupijiao_refresh', 'nonce');
     
     if (!current_user_can('manage_options')) {
@@ -113,8 +146,9 @@ public function ajax_force_refresh() {
     wp_cache_delete('alloptions', 'options');
     
     // 重新初始化支付网关
-    if (class_exists('WC_Payment_Gateways')) {
+    if (class_exists('WC_Payment_Gateway')) {
         WC()->payment_gateways()->init();
+        
     }
     
     wp_send_json_success('网关已强制刷新，请重新检查设置页面。');
@@ -139,6 +173,7 @@ public function ajax_clear_cache() {
     // 清除WooCommerce会话
     if (function_exists('WC')) {
         WC()->session->cleanup_sessions();
+      
     }
     
     wp_send_json_success('缓存已清除，请刷新页面查看效果。');
@@ -181,10 +216,9 @@ public function ajax_test_checkout() {
         $order->save();
         
         // 创建支付
-        require_once HUPIJIAO_PLUGIN_DIR . 'includes/Payment.php';
-        $payment = new Hupijiao\Payment();
         
-        $result = $payment->create_order(array(
+              
+        $result = $this->payment->create_order(array(
             'order_id' => 'TEST' . $order->get_id(),
             'amount' => $amount,
             'type' => $type,
@@ -254,8 +288,8 @@ public function ajax_test_checkout() {
     
             // 这里可以添加更复杂的测试逻辑
             // 例如：检查回调URL是否可访问
-    
-            wp_die(json_encode($test_data));
+            wp_send_json_success($test_data);
+            wp_die();
             }
     
     public function activate() {
@@ -299,21 +333,26 @@ public function ajax_test_checkout() {
     
     public function init() {
         
+
         if (class_exists('WooCommerce')){
+           
             // 加载支付网关
             add_filter('woocommerce_payment_gateways', array($this, 'add_payment_gateway'));
         }
         // 或者作为独立支付系统
+/*
         if (class_exists('Hupijiao\\Payment')) {
             $this->payment=new Hupijiao\Payment();
         }
-
+*/
         $this->init_ajax();
     }
     
     public function add_payment_gateway($gateways) {
-        $gateways[] = 'Hupijiao_WC_Gateway';
+        $gateways[] = '\\Hupijiao_WC_Gateway';
         
+           
+
         return $gateways;
     }
     
@@ -390,6 +429,8 @@ public function ajax_test_checkout() {
         register_setting('hupijiao_payment_settings', 'hupijiao_return_url');
     }
 }
+
+
 
 // 初始化插件
 Hupijiao_Payment_Plugin::get_instance();

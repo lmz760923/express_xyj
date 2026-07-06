@@ -1,0 +1,30 @@
+2026-02-18T05:08:28+00:00 INFO Get access token Request: https://api.sandbox.paypal.com/v1/oauth2/token/
+2026-02-18T05:08:28+00:00 INFO Response Code: 200
+2026-02-18T05:08:28+00:00 INFO Response Message: OK
+2026-02-18T05:08:28+00:00 INFO Response Body: Array
+(
+    [scope] => https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/partnerfee https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/reporting/search/read https://uri.paypal.com/services/payments/initiatepayment https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/vault/payment-tokens/readwrite https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/shipping/trackers/readwrite https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks
+    [access_token] => A21AAKDXiv9jKBGWpANdDegXd8e3tKqalJOKpqtROLbS1L4-io8OLZi1iXCbZzacWZeiN3utLc76McFeQD1nHIY0OQW3uVncw
+    [token_type] => Bearer
+    [app_id] => APP-1T576138U23229253
+    [expires_in] => 32400
+    [nonce] => 2026-02-18T05:08:27ZVdqEt-b2hsMTuB5HcJMc2_mhQKqnfDS2ILSsoWkp5Lk
+)
+2026-02-18T05:08:28+00:00 INFO seller_onboarding_status : https://api-m.sandbox.paypal.com/v1/customer/partners/K6QLN2LPGQRHL/merchant-integrations/9C4B4VMK34FKG
+2026-02-18T05:08:30+00:00 INFO Error Message : cURL error 6: Could not resolve host: api-m.sandbox.paypal.com
+2026-02-18T05:09:27+00:00 INFO Get access token Request: https://api.sandbox.paypal.com/v1/oauth2/token/
+2026-02-18T05:09:27+00:00 INFO Response Code: 200
+2026-02-18T05:09:27+00:00 INFO Response Message: OK
+2026-02-18T05:09:27+00:00 INFO Response Body: Array
+(
+    [scope] => https://uri.paypal.com/services/checkout/one-click-with-merchant-issued-token https://uri.paypal.com/services/payments/partnerfee https://uri.paypal.com/services/payments/futurepayments https://uri.paypal.com/services/invoicing https://uri.paypal.com/services/vault/payment-tokens/read https://uri.paypal.com/services/disputes/read-buyer https://uri.paypal.com/services/payments/realtimepayment https://uri.paypal.com/services/disputes/update-seller https://uri.paypal.com/services/payments/payment/authcapture openid https://uri.paypal.com/services/disputes/read-seller Braintree:Vault https://uri.paypal.com/services/payments/refund https://api.paypal.com/v1/vault/credit-card https://api.paypal.com/v1/payments/.* https://uri.paypal.com/services/reporting/search/read https://uri.paypal.com/services/payments/initiatepayment https://uri.paypal.com/payments/payouts https://uri.paypal.com/services/vault/payment-tokens/readwrite https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/shipping/trackers/readwrite https://uri.paypal.com/services/subscriptions https://uri.paypal.com/services/applications/webhooks
+    [access_token] => A21AAKDXiv9jKBGWpANdDegXd8e3tKqalJOKpqtROLbS1L4-io8OLZi1iXCbZzacWZeiN3utLc76McFeQD1nHIY0OQW3uVncw
+    [token_type] => Bearer
+    [app_id] => APP-1T576138U23229253
+    [expires_in] => 32340
+    [nonce] => 2026-02-18T05:08:27ZVdqEt-b2hsMTuB5HcJMc2_mhQKqnfDS2ILSsoWkp5Lk
+)
+2026-02-18T05:09:27+00:00 INFO seller_onboarding_status : https://api-m.sandbox.paypal.com/v1/customer/partners/K6QLN2LPGQRHL/merchant-integrations/9C4B4VMK34FKG
+2026-02-18T05:09:29+00:00 INFO Response Code: 200
+2026-02-18T05:09:29+00:00 INFO Response Message: OK
+2026-02-18T05:09:29+00:00 INFO Response Body: {"merchant_id":"9C4B4VMK34FKG","tracking_id":"sb-8bqbe48262907@business.example.com","products":[{"name":"PPCP_STANDARD","vetting_status":"SUBSCRIBED","capabilities":["SUBSCRIPTIONS","PAYPAL_CHECKOUT","SPEND_FROM_BALANCE","GUEST_CHECKOUT","PAYPAL_CHECKOUT_ALTERNATIVE_PAYMENT_METHODS","SEND_INVOICE","WITHDRAW_FUNDS_TO_DOMESTIC_BANK","PAYPAL_CHECKOUT_PAY_WITH_PAYPAL_CREDIT"]},{"name":"EXPRESS_CHECKOUT","status":"ACTIVE"},{"name":"PPCP_CUSTOM","vetting_status":"SUBSCRIBED","capabilities":["COMMERCIAL_ENTITY","FRAUD_TOOL_ACCESS","AMEX_OPTBLUE","CUSTOM_CARD_PROCESSING"]}],"capabilities":[{"name":"COMMERCIAL_ENTITY","status":"ACTIVE"},{"name":"SUBSCRIPTIONS","status":"ACTIVE"},{"name":"PAYPAL_CHECKOUT","status":"ACTIVE"},{"name":"SPEND_FROM_BALANCE","status":"ACTIVE"},{"name":"GUEST_CHECKOUT","status":"ACTIVE"},{"name":"FRAUD_TOOL_ACCESS","status":"ACTIVE"},{"name":"PAYPAL_CHECKOUT_ALTERNATIVE_PAYMENT_METHODS","status":"ACTIVE"},{"name":"AMEX_OPTBLUE","status":"ACTIVE"},{"name":"SEND_INVOICE","status":"ACTIVE"},{"name":"CUSTOM_CARD_PROCESSING","status":"ACTIVE"},{"name":"WITHDRAW_FUNDS_TO_DOMESTIC_BANK","status":"ACTIVE"},{"name":"PAYPAL_CHECKOUT_PAY_WITH_PAYPAL_CREDIT","status":"ACTIVE"},{"name":"PAYPAL_WALLET_VAULTING_ADVANCED","status":"ACTIVE"}],"payments_receivable":true,"legal_name":"Test Store","primary_email":"sb-8bqbe48262907@business.example.com","primary_email_confirmed":true,"country":"C2"}

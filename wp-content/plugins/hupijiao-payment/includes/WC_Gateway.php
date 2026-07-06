@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 
 // 确保WooCommerce存在
 if (!class_exists('WC_Payment_Gateway')) {
+    
     return;
 }
 
@@ -20,9 +21,10 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
     {
         $this->id = 'hupijiao';
         $this->icon = HUPIJIAO_PLUGIN_URL . 'assets/images/logo.png';
-        $this->has_fields = false;
+        $this->has_fields = true;
         $this->method_title = '虎皮椒支付';
-        $this->method_description = '通过虎皮椒支付接口接收支付宝/微信支付';
+        $this->method_description = '通过支付宝/微信支付';
+        $this->supports=array('products');
 
         // 加载设置字段
         $this->init_form_fields();
@@ -38,7 +40,14 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
         $this->app_secret = $this->get_option('app_secret');
         $this->api_url = $this->get_option('api_url');
         $this->instructions = $this->get_option('instructions');
-
+       
+        if (defined('WP_DEBUG') && WP_DEBUG) {
+            error_log('api_url:' . $this->api_url);
+            error_log('app_secret:' . $this->app_secret);
+            error_log('enabled:'. $this->enabled);
+        }
+        
+        
         // 保存设置
         add_action(
             'woocommerce_update_options_payment_gateways_' . $this->id,
@@ -50,46 +59,18 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
 
         // 添加支付说明
         add_action('woocommerce_thankyou_' . $this->id, array($this, 'thankyou_page'));
-
-        // 检查设置是否完整
-        add_action('admin_notices', array($this, 'check_settings'));
-
-        // 添加调试日志
-        add_action('init', array($this, 'log_gateway_status'));
-
-        // 确保在WooCommerce加载后再初始化
-        add_action('woocommerce_loaded', array($this, 'woocommerce_loaded'));
-    }
-
-    // 新增方法：记录网关状态
-    public function log_gateway_status()
-    {
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            error_log('虎皮椒支付网关初始化：ID=' . $this->id);
-            error_log('虎皮椒支付网关启用状态：' . $this->enabled);
-            error_log('虎皮椒支付网关APP_ID：' . (empty($this->app_id) ? '未设置' : '已设置'));
-        }
-    }
-
-    // 新增方法：确保在WooCommerce加载后执行
-    public function woocommerce_loaded()
-    {
-        // 再次检查设置
-        $this->enabled = $this->get_option('enabled');
-        $this->title = $this->get_option('title');
-
-        // 记录日志
-        if (defined('WP_DEBUG') && WP_DEBUG) {
-            error_log('WooCommerce加载后检查 - 虎皮椒网关启用：' . $this->enabled);
-        }
+   
+        
     }
 
     // 新增方法：检查网关是否可用
     public function is_available()
     {
+        return true;
         // 首先调用父类方法检查基本可用性
+  
         $is_available = parent::is_available();
-
+/*
         if (defined('WP_DEBUG') && WP_DEBUG) {
             error_log('虎皮椒支付 is_available() 被调用');
             error_log('父类返回：' . ($is_available ? 'true' : 'false'));
@@ -97,7 +78,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
             error_log('当前货币：' . get_woocommerce_currency());
             error_log('订单金额：' . (WC()->cart ? WC()->cart->get_total('') : '无购物车'));
         }
-
+*/
         // 基础检查
         if ($this->enabled !== 'yes') {
             return false;
@@ -158,14 +139,14 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
         }
 
         // 检查货币（虎皮椒通常只支持人民币）
-        $currency = get_woocommerce_currency();
+ /*     $currency = get_woocommerce_currency();
         if ($currency !== 'CNY' && $currency !== 'RMB') {
             if (defined('WP_DEBUG') && WP_DEBUG) {
                 error_log('虎皮椒支付：不支持当前货币 ' . $currency);
             }
             return false;
         }
-
+*/
         // 检查最小金额（如果有设置）
         $min_amount = $this->get_option('min_amount', 0.01);
         if (WC()->cart && WC()->cart->get_total('') < $min_amount) {
@@ -181,7 +162,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
         }
 
 
-
+        
         return $is_available;
     }
 
@@ -190,7 +171,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
      */
     public function init_form_fields()
     {
-        $this->form_fields = array(
+            $this->form_fields = array(
             'enabled' => array(
                 'title' => '启用/禁用',
                 'type' => 'checkbox',
@@ -247,6 +228,10 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
      */
     public function process_payment($order_id)
     {
+
+        wc_add_notice('支付宝微信支付还没开通', 'error');
+        return array('result' => 'fail');
+
         $order = wc_get_order($order_id);
 
         // 检查订单是否有效
@@ -254,7 +239,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
             wc_add_notice('订单不存在', 'error');
             return array('result' => 'fail');
         }
-
+        
         // 检查金额
         if ($order->get_total() <= 0) {
             wc_add_notice('订单金额无效', 'error');
@@ -279,7 +264,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
 
             // 构建支付参数
             $params = array(
-                'order_id' => $this->generate_order_no($order),
+                'order_id' => $order_id . '-' . $this->generate_order_no($order),
                 'amount' => floatval($order->get_total()),
                 'type' => 'alipay', // 默认支付宝，可以改为用户选择
                 'name' => '订单支付 - ' . $order->get_order_number(),
@@ -430,22 +415,7 @@ class Hupijiao_WC_Gateway extends WC_Payment_Gateway
         }
     }
 
-    /**
-     * 检查设置是否完整
-     */
-    public function check_settings()
-    {
-        if ($this->enabled === 'yes') {
-            if (empty($this->app_id) || empty($this->app_secret)) {
-                echo '<div class="error"><p>';
-                echo sprintf(
-                    '虎皮椒支付：请配置App ID和App Secret。 <a href="%s">点击这里配置</a>',
-                    admin_url('admin.php?page=wc-settings&tab=checkout&section=hupijiao')
-                );
-                echo '</p></div>';
-            }
-        }
-    }
+ 
 
     /**
      * 记录日志

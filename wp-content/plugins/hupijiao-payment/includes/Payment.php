@@ -58,13 +58,8 @@ class Payment {
                 'created_at' => current_time('mysql')
             )
         );
-        /*
-        return array(
-            'success' => true,
-            'order_id' => $params['order_id'],
-            'payment_url' => null,
-            'trade_no' => $result['trade_no']
-        );*/
+        
+    
         // 调用虎皮椒API
         $result = $this->call_api('do.html', $params);
         
@@ -243,7 +238,8 @@ class Payment {
         
         ob_start();
         //echo plugins_url('assets/script.js',__DIR__);
-        wp_enqueue_script('pay_ajax',plugins_url('assets/script.js',__DIR__),array(),1.0,true);
+        
+        wp_enqueue_script('pay_ajax',HUPIJIAO_PLUGIN_URL . 'assets/script.js',array(),1.0,true);
         wp_localize_script('pay_ajax','pay_ajax_obj',array(
             'ajax_url'=>admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('hupijiao_create_order')
