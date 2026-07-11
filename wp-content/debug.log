@@ -1,10 +1,3 @@
-[06-Jul-2026 03:12:45 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:12:49 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:31 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:31 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:43 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:46 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:50 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:13:50 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:14:51 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
-[06-Jul-2026 03:15:52 UTC] PHP Warning:  Constant WP_CONTENT_DIR already defined in /var/www/html/wp-config.php on line 148
+[11-Jul-2026 15:44:04 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[11-Jul-2026 15:44:32 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[11-Jul-2026 15:48:17 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563

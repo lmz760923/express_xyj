@@ -145,4 +145,5 @@ require_once ABSPATH . 'wp-settings.php';
 
 define('FS_METHOD', 'direct');
 define('WP_TEMP_DIR', ABSPATH . 'wp-content/tmp');
-define('WP_CONTENT_DIR', ABSPATH . 'wp-content');
+
+
