@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Mini JWT Compat
  * Plugin URI:
- * Description: WP JWT账号密码登录+微信一键登录+获取用户信息+小程序JSAPI支付
- * Version: 1.3
+ * Description: WP JWT账号密码登录+微信一键登录+获取用户信息+小程序JSAPI支付【后台设置版】
+ * Version: 1.4
  * Author: Custom
  */
 
@@ -11,24 +11,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('MP_JWT_SECRET', 'CHANGE_TO_YOUR_RANDOM_SECRET_2026_ABC789XYZ');
-define('MP_JWT_TTL', 7 * 24 * 3600);
-
-// ============ 微信小程序配置【务必修改为你自己的】============
-define('MP_WX_APPID', 'wx52f02282a35f7efb');
-define('MP_WX_SECRET', 'd9954f593bd75aee0f8b1cd5bf360709');
-
-// ============ 微信支付配置【开通商户号后填写】============
-//微信支付配置
-define('WXPAY_MCHID','1111111111111');        //商户号 mchid
-define('WXPAY_APIKEY','111111111111');       //V2密钥（API密钥）
-define('WXPAY_APPID','wx52f02282a35f7efb');        //小程序AppID
-define('WXPAY_NOTIFY_URL','https://1.94.15.131/wxpay/notify.php'); //异步通知地址
-// =========================================================
-define('WC_CONSUMER_KEY','ck_578b3764c552ec7c0e22c104a615972489dc6e04');
-define('WC_CONSUMER_SECRET','cs_318d74983e7f0a5ffca202e1ae5cc446021d3235');
-define('WC_API_BASE','https://1.94.15.131/wp-json/wc/v3');
-
+// ====================== 不再硬编码业务配置，读取后台选项 ======================
+function mpjwt_get_opt($key, $default = '')
+{
+    $opts = get_option('mpjwt_settings', []);
+    return isset($opts[$key]) ? $opts[$key] : $default;
+}
 
 register_activation_hook(__FILE__, 'mpjwt_create_wx_table');
 
@@ -50,19 +38,113 @@ function mpjwt_create_wx_table()
         UNIQUE KEY uk_wpuid(wp_uid)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
     $wpdb->query($sql);
+
+    // 初始化默认配置
+    $exists = get_option('mpjwt_settings');
+    if (!$exists) {
+        add_option('mpjwt_settings', [
+            'jwt_secret'      => 'CHANGE_TO_YOUR_RANDOM_SECRET_2026_ABC789XYZ',
+            'jwt_ttl_days'    => 7,
+            'wx_appid'        => '',
+            'wx_secret'       => '',
+            'wxpay_mchid'     => '',
+            'wxpay_apikey_v2' => '',
+            'woocommerce_ck'  => '',
+            'woocommerce_cs'  => '',
+            'woocommerce_api' => 'https://1.94.15.131/wp-json/wc/v3',
+            'wxpay_notify'    => '',
+        ]);
+    }
+}
+
+/**
+ * 后台菜单 + 设置页面
+ */
+add_action('admin_menu', function () {
+    add_options_page(
+        '小程序JWT & 支付配置',
+        '小程序API配置',
+        'manage_options',
+        'mpjwt-settings',
+        'mpjwt_render_settings_page'
+    );
+});
+
+add_action('admin_init', function () {
+    register_setting('mpjwt_settings_group', 'mpjwt_settings');
+});
+
+function mpjwt_render_settings_page()
+{
+    if (!current_user_can('manage_options')) wp_die();
+    $opt = get_option('mpjwt_settings', []);
+    ?>
+    <div class="wrap">
+        <h1>小程序 JWT / 微信支付 / Woo 接口配置</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('mpjwt_settings_group');
+            do_settings_sections('mpjwt_settings_group');
+            ?>
+            <table class="form-table">
+                <tr>
+                    <th>JWT 加密密钥（务必随机长字符串）</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[jwt_secret]" value="<?php echo esc_attr($opt['jwt_secret'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>Token有效期(天)</th>
+                    <td><input type="number" name="mpjwt_settings[jwt_ttl_days]" value="<?php echo esc_attr($opt['jwt_ttl_days'] ?? 7) ?>"></td>
+                </tr>
+                <tr>
+                    <th>微信小程序 AppID</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[wx_appid]" value="<?php echo esc_attr($opt['wx_appid'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>微信小程序 AppSecret</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[wx_secret]" value="<?php echo esc_attr($opt['wx_secret'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>微信支付 商户号 MCHID</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[wxpay_mchid]" value="<?php echo esc_attr($opt['wxpay_mchid'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>微信支付 V2 API密钥（32位）</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[wxpay_apikey_v2]" value="<?php echo esc_attr($opt['wxpay_apikey_v2'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>WooCommerce Consumer Key</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[woocommerce_ck]" value="<?php echo esc_attr($opt['woocommerce_ck'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>WooCommerce Consumer Secret</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[woocommerce_cs]" value="<?php echo esc_attr($opt['woocommerce_cs'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>WooCommerce API地址</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[woocommerce_api]" value="<?php echo esc_attr($opt['woocommerce_api'] ?? '') ?>"></td>
+                </tr>
+                <tr>
+                    <th>微信支付异步通知URL</th>
+                    <td><input style="width:100%;max-width:650px;" type="text" name="mpjwt_settings[wxpay_notify]" value="<?php echo esc_attr($opt['wxpay_notify'] ?? '') ?>"></td>
+                </tr>
+            </table>
+            <?php submit_button('保存配置'); ?>
+        </form>
+    </div>
+    <?php
 }
 
 add_action('rest_api_init', function () {
-	// 全局CORS 解决小程序OPTIONS预检
+    // 全局CORS 解决小程序OPTIONS预检
     remove_filter('rest_pre_serve_request', 'rest_send_cors_headers');
-    add_filter('rest_pre_serve_request', function($value) {
+    add_filter('rest_pre_serve_request', function ($value) {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
         header('Access-Control-Allow-Headers: Content-Type, Authorization');
         header('Access-Control-Max-Age: 86400');
         return $value;
     });
-	
+
     // 账号密码登录
     register_rest_route(
         'jwt-auth/v1',
@@ -128,66 +210,68 @@ add_action('rest_api_init', function () {
             'permission_callback' => '__return_true'
         ]
     );
-	
-	register_rest_route('mini/v1', 'request/(?P<wc_path>.+)', [
-    'methods' => ['GET','POST'],
-    'callback' => function($req) {
-        $wc_path = trim($req->get_param('wc_path'));
-        $query   = $req->get_params();
 
-        unset($query['wc_path']);
-        unset($query['_route']);
+    register_rest_route('mini/v1', 'request/(?P<wc_path>.+)', [
+        'methods' => ['GET', 'POST'],
+        'callback' => function ($req) {
+            $wc_path = trim($req->get_param('wc_path'));
+            $query   = $req->get_params();
 
-        $body = $req->get_json_params() ?: [];
+            unset($query['wc_path']);
+            unset($query['_route']);
 
-        // 安全校验
-        if (empty($wc_path) || ! preg_match('/^[a-z0-9_\-\/]+$/i', $wc_path)) {
-            return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
-        }
-        if (str_contains($wc_path, '..') || str_starts_with(strtolower($wc_path), 'http')) {
-            return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
-        }
+            $body = $req->get_json_params() ?: [];
 
-        // =========【重要优化】改用Basic Auth，移除query里密钥（可选但推荐）========
-        $api_url = add_query_arg($query, trailingslashit(WC_API_BASE) . $wc_path);
+            // 安全校验
+            if (empty($wc_path) || !preg_match('/^[a-z0-9_\-\/]+$/i', $wc_path)) {
+                return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
+            }
+            if (str_contains($wc_path, '..') || str_starts_with(strtolower($wc_path), 'http')) {
+                return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
+            }
 
-        $args = [
-            'method'  => $req->get_method(),
-            'headers' => [
-                'Content-Type' => 'application/json',
-                'Accept'       => 'application/json',
-                'Authorization' => 'Basic ' . base64_encode(WC_CONSUMER_KEY . ':' . WC_CONSUMER_SECRET)
-            ],
-            'timeout' => 30,
-            'sslverify' => false
-        ];
+            $wc_ck  = mpjwt_get_opt('woocommerce_ck');
+            $wc_cs  = mpjwt_get_opt('woocommerce_cs');
+            $wc_api = mpjwt_get_opt('woocommerce_api');
 
-        $method = strtoupper($req->get_method());
-        // GET 请求禁止携带body，修复本次Fatal崩溃
-        if (!in_array($method, ['GET','HEAD']) && !empty($body)) {
-            $args['body'] = json_encode($body);
-        }
+            $api_url = add_query_arg($query, trailingslashit($wc_api) . $wc_path);
 
-        $resp = wp_remote_request($api_url, $args);
+            $args = [
+                'method'  => $req->get_method(),
+                'headers' => [
+                    'Content-Type'  => 'application/json',
+                    'Accept'        => 'application/json',
+                    'Authorization' => 'Basic ' . base64_encode($wc_ck . ':' . $wc_cs)
+                ],
+                'timeout'  => 30,
+                'sslverify' => false
+            ];
 
-        if(is_wp_error($resp)){
-            return new WP_Error('api_request_error', $resp->get_error_message(), ['status' => 500]);
-        }
+            $method = strtoupper($req->get_method());
+            if (!in_array($method, ['GET', 'HEAD']) && !empty($body)) {
+                $args['body'] = json_encode($body);
+            }
 
-        $response_code = wp_remote_retrieve_response_code($resp);
-        $response_body = wp_remote_retrieve_body($resp);
-        $data = json_decode($response_body, true);
+            $resp = wp_remote_request($api_url, $args);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            return new WP_Error('invalid_woo_response', '上游接口返回数据格式错误', [
-                'status' => $response_code ?: 502
-            ]);
-        }
+            if (is_wp_error($resp)) {
+                return new WP_Error('api_request_error', $resp->get_error_message(), ['status' => 500]);
+            }
 
-        return new WP_REST_Response($data, $response_code);
-    },
-    'permission_callback' => 'mpjwt_token_check'
-]);
+            $response_code = wp_remote_retrieve_response_code($resp);
+            $response_body = wp_remote_retrieve_body($resp);
+            $data = json_decode($response_body, true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                return new WP_Error('invalid_woo_response', '上游接口返回数据格式错误', [
+                    'status' => $response_code ?: 502
+                ]);
+            }
+
+            return new WP_REST_Response($data, $response_code);
+        },
+        'permission_callback' => 'mpjwt_token_check'
+    ]);
 });
 
 /**
@@ -195,17 +279,16 @@ add_action('rest_api_init', function () {
  */
 function mpjwt_token_check(WP_REST_Request $request)
 {
-    // OPTIONS直接放行（CORS预检）
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
         return true;
     }
-
     $auth = $request->get_header('authorization');
     if (empty($auth) || stripos($auth, 'Bearer ') !== 0) {
         return new WP_Error('no_token', '请先登录', array('status' => 401));
     }
     $token = str_replace('Bearer ', '', $auth);
-    $payload = mpjwt_decode($token, MP_JWT_SECRET);
+    $secret = mpjwt_get_opt('jwt_secret');
+    $payload = mpjwt_decode($token, $secret);
     if (!$payload) {
         return new WP_Error('token_invalid', '登录已失效，请重新登录', array('status' => 401));
     }
@@ -214,7 +297,7 @@ function mpjwt_token_check(WP_REST_Request $request)
 }
 
 /**
- * 账号密码登录（支持邮箱）
+ * 账号密码登录
  */
 function mpjwt_handle_token(WP_REST_Request $request)
 {
@@ -250,10 +333,13 @@ function mpjwt_wx_login(WP_REST_Request $request)
         return new WP_Error('empty_code', 'code不能为空', array('status' => 400));
     }
 
+    $wx_appid  = mpjwt_get_opt('wx_appid');
+    $wx_secret = mpjwt_get_opt('wx_secret');
+
     $url = sprintf(
         'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code',
-        MP_WX_APPID,
-        MP_WX_SECRET,
+        $wx_appid,
+        $wx_secret,
         $code
     );
     $res = wp_remote_get($url);
@@ -349,15 +435,17 @@ function mpjwt_get_me(WP_REST_Request $request)
  */
 function mpjwt_build_token_response($user)
 {
+    $ttl_days = (int)mpjwt_get_opt('jwt_ttl_days',7);
     $payload = array(
         'iss'  => get_home_url(),
         'iat'  => time(),
-        'exp'  => time() + MP_JWT_TTL,
+        'exp'  => time() + $ttl_days * 24 * 3600,
         'uid'  => $user->ID,
         'login' => $user->user_login,
         'email' => $user->user_email
     );
-    $token = mpjwt_encode($payload, MP_JWT_SECRET);
+    $secret = mpjwt_get_opt('jwt_secret');
+    $token = mpjwt_encode($payload, $secret);
 
     return rest_ensure_response(array(
         'token' => $token,
@@ -412,12 +500,7 @@ function mpjwt_b64urldec($str): string
 }
 
 /**
- * 【修复版】微信支付预下单接口
- * 前端传 code，后端自动解析openid
- */
-/**
- * 【修复版】微信支付预下单接口
- * 前端传 code，后端自动解析openid
+ * 微信支付预下单接口
  */
 function mpjwt_create_payment(WP_REST_Request $request)
 {
@@ -437,22 +520,25 @@ function mpjwt_create_payment(WP_REST_Request $request)
     if (!$order) {
         return new WP_Error('order_not_found', '订单不存在', ['status' => 404]);
     }
-    /*if ((int)$order->get_customer_id() !== (int)$user_id) {
-        return new WP_Error('no_permission', '无权操作该订单', ['status' => 403]);
-    }*/
     if ($order->is_paid()) {
         return new WP_Error('order_paid', '订单已支付', ['status' => 400]);
     }
-    // ==========修复常量名称==========
-    if (empty(WXPAY_MCHID) || empty(WXPAY_APIKEY)) {
+
+    $wx_appid      = mpjwt_get_opt('wx_appid');
+    $wx_secret     = mpjwt_get_opt('wx_secret');
+    $mchid         = mpjwt_get_opt('wxpay_mchid');
+    $wxpay_v2_key  = mpjwt_get_opt('wxpay_apikey_v2');
+    $notify_url    = mpjwt_get_opt('wxpay_notify');
+
+    if (empty($mchid) || empty($wxpay_v2_key)) {
         return new WP_Error('merchant_empty', '后台未配置微信商户参数', ['status' => 500]);
     }
 
-    // 1、后端用code换取openid
+    // 1、code换取openid
     $sessionUrl = sprintf(
         'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code',
-        MP_WX_APPID,
-        MP_WX_SECRET,
+        $wx_appid,
+        $wx_secret,
         $code
     );
     $sessionResp = wp_remote_get($sessionUrl);
@@ -465,15 +551,14 @@ function mpjwt_create_payment(WP_REST_Request $request)
     }
     $openid = $sessionData['openid'];
 
-    // 2、统一下单参数
+    // 2、统一下单
     $total_fee = (int)($order->get_total() * 100);
     $out_trade_no = $order->get_order_key();
     $body = '订单#' . $order_id;
-    $notify_url = get_home_url() . '/wp-json/jwt-auth/v1/pay_notify';
 
     $params = [
-        'appid' => WXPAY_APPID,
-        'mch_id' => WXPAY_MCHID,
+        'appid' => $wx_appid,
+        'mch_id' => $mchid,
         'nonce_str' => mpjwt_random_str(24),
         'body' => $body,
         'out_trade_no' => $out_trade_no,
@@ -484,7 +569,7 @@ function mpjwt_create_payment(WP_REST_Request $request)
         'openid' => $openid
     ];
     ksort($params);
-    $signRaw = urldecode(http_build_query($params)) . '&key=' . WXPAY_APIKEY;
+    $signRaw = http_build_query($params) . '&key=' . $wxpay_v2_key;
     $params['sign'] = strtoupper(md5($signRaw));
 
     $xml = mpjwt_array_to_xml($params);
@@ -501,21 +586,23 @@ function mpjwt_create_payment(WP_REST_Request $request)
     }
     $prepay_id = $payResult['prepay_id'];
 
-    // 3、小程序拉起支付签名包
+    // 3、小程序支付签名包
     $timeStamp = (string)time();
     $payPackage = [
-        'appId' => WXPAY_APPID,
+        'appId' => $wx_appid,
         'timeStamp' => $timeStamp,
         'nonceStr' => mpjwt_random_str(24),
         'package' => "prepay_id={$prepay_id}",
         'signType' => 'MD5'
     ];
+
     ksort($payPackage);
-    $paySignRaw = urldecode(http_build_query($payPackage)) . '&key=' . WXPAY_APIKEY;
+    $paySignRaw = http_build_query($payPackage) . '&key=' . $wxpay_v2_key;
     $payPackage['paySign'] = strtoupper(md5($paySignRaw));
 
     return rest_ensure_response($payPackage);
 }
+
 /**
  * 微信支付异步回调
  */

@@ -1,3 +1,16 @@
 [11-Jul-2026 15:44:04 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
 [11-Jul-2026 15:44:32 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
 [11-Jul-2026 15:48:17 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 02:36:53 UTC] Automatic updates starting...
+[12-Jul-2026 02:36:55 UTC] Automatic updates complete.
+[12-Jul-2026 06:02:51 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:05:40 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:11:37 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:17:40 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:19:30 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:25:42 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:29:26 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:29:26 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 563
+[12-Jul-2026 06:35:44 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 564
+[12-Jul-2026 06:42:40 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 564
+[12-Jul-2026 06:52:26 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 650
