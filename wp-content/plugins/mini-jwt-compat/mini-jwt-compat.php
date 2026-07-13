@@ -268,6 +268,14 @@ add_action('rest_api_init', function () {
         'cookies' => [],
     ];
 
+    // ==========【关键新增：创建订单自动绑定登录用户】==========
+    if ($method === 'POST' && $wc_path === 'orders') {
+        $jwtUser = $req->get_param('_jwt_user');
+        if (!empty($jwtUser['uid'])) {
+            $body['customer_id'] = (int)$jwtUser['uid'];
+        }
+    }
+
     if (!in_array($method, ['GET', 'HEAD']) && count($body) > 0) {
         $args['body'] = json_encode($body);
     }
@@ -294,9 +302,9 @@ add_action('rest_api_init', function () {
     flush();
     return new WP_REST_Response($data, $response_code);
 },
-// 🔴 这里改为 __return_true，不在路由层面拦截，移到回调内部手动校验
 'permission_callback' => '__return_true'
 ]);
+
 });
 
 /**
@@ -346,14 +354,15 @@ function mpjwt_handle_token(WP_REST_Request $request)
     return mpjwt_build_token_response($user);
 }
 
+
 /**
  * 微信登录
  */
 function mpjwt_wx_login(WP_REST_Request $request)
 {
     $code = trim($request->get_param('code'));
-    $nickname = trim($request->get_param('nickname'));
-    $avatar = trim($request->get_param('avatar'));
+    $nickname = trim($request->get_param('nickname') ?? '');
+    $avatar = trim($request->get_param('avatar') ?? '');
     if (empty($code)) {
         return new WP_Error('empty_code', 'code不能为空', array('status' => 400));
     }
@@ -382,20 +391,49 @@ function mpjwt_wx_login(WP_REST_Request $request)
     $row = $wpdb->get_row($wpdb->prepare("SELECT wp_uid FROM $table WHERE openid=%s", $openid));
 
     if (!$row) {
-        return rest_ensure_response(array(
-            'bind' => false,
+        // 无绑定记录 → 自动创建customer会员
+        $rand_suffix = substr(md5($openid),0,8);
+        $username = 'wx_' . $rand_suffix;
+        $email = $openid . '@wx.local';
+        $random_pass = wp_generate_password(16);
+
+        // 无感登录缺少昵称时兜底默认名称
+        if(empty($nickname)){
+            $nickname = '微信用户';
+        }
+
+        $user_id = wp_create_user($username, $random_pass, $email);
+        if (is_wp_error($user_id)) {
+            return new WP_Error('register_fail','自动注册账号失败',['status'=>500]);
+        }
+        $user = get_user_by('ID', $user_id);
+        if ($user) {
+            $user->set_role('customer');
+        }
+        // 存入微信绑定关系
+        $wpdb->insert($table, array(
             'openid' => $openid,
-            'msg' => '该微信尚未绑定网站账号，请绑定'
+            'wp_uid' => $user_id,
+            'nickname' => $nickname,
+            'avatar' => $avatar
         ));
+        return mpjwt_build_token_response($user);
     }
 
+    // 已有绑定用户：如果本次传入昵称/头像，则更新信息
     $user = get_user_by('ID', $row->wp_uid);
     if (!$user) {
         return new WP_Error('user_not_found', '绑定的用户不存在', array('status' => 404));
     }
+    $updateData = [];
+    if(!empty($nickname)) $updateData['nickname'] = $nickname;
+    if(!empty($avatar)) $updateData['avatar'] = $avatar;
+    if(!empty($updateData)){
+        $wpdb->update($table, $updateData, ['openid'=>$openid]);
+    }
+
     return mpjwt_build_token_response($user);
 }
-
 /**
  * 微信绑定账号
  */
