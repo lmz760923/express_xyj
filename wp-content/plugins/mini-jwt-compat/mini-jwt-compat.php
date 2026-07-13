@@ -212,66 +212,91 @@ add_action('rest_api_init', function () {
     );
 
     register_rest_route('mini/v1', 'request/(?P<wc_path>.+)', [
-        'methods' => ['GET', 'POST'],
-        'callback' => function ($req) {
-            $wc_path = trim($req->get_param('wc_path'));
-            $query   = $req->get_params();
+'methods' => ['GET', 'POST'],
+'callback' => function ($req) {
+    // 清空全部输出缓冲区，杜绝碎片输出破坏JSON
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
 
-            unset($query['wc_path']);
-            unset($query['_route']);
+    $wc_path = trim($req->get_param('wc_path'));
+    $query   = $req->get_query_params();
+    $body    = $req->get_json_params() ?: [];
 
-            $body = $req->get_json_params() ?: [];
+    unset($query['wc_path']);
+    unset($query['_route']);
 
-            // 安全校验
-            if (empty($wc_path) || !preg_match('/^[a-z0-9_\-\/]+$/i', $wc_path)) {
-                return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
-            }
-            if (str_contains($wc_path, '..') || str_starts_with(strtolower($wc_path), 'http')) {
-                return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
-            }
+    // ====================== 公开接口白名单，无需登录 ======================
+    $publicPaths = [
+        'products/categories',
+        'products'
+    ];
+    $isPublic = in_array($wc_path, $publicPaths);
 
-            $wc_ck  = mpjwt_get_opt('woocommerce_ck');
-            $wc_cs  = mpjwt_get_opt('woocommerce_cs');
-            $wc_api = mpjwt_get_opt('woocommerce_api');
+    // 如果不是公开接口，执行token校验
+    if (!$isPublic) {
+        $check = mpjwt_token_check($req);
+        if (is_wp_error($check)) {
+            return $check;
+        }
+    }
+    // =====================================================================
 
-            $api_url = add_query_arg($query, trailingslashit($wc_api) . $wc_path);
+    if (empty($wc_path) || !preg_match('/^[a-z0-9_\-\/]+$/i', $wc_path)) {
+        return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
+    }
+    if (str_contains($wc_path, '..') || str_starts_with(strtolower($wc_path), 'http')) {
+        return new WP_Error('invalid_path', '非法接口路径', ['status' => 400]);
+    }
 
-            $args = [
-                'method'  => $req->get_method(),
-                'headers' => [
-                    'Content-Type'  => 'application/json',
-                    'Accept'        => 'application/json',
-                    'Authorization' => 'Basic ' . base64_encode($wc_ck . ':' . $wc_cs)
-                ],
-                'timeout'  => 30,
-                'sslverify' => false
-            ];
+    $wc_ck  = mpjwt_get_opt('woocommerce_ck');
+    $wc_cs  = mpjwt_get_opt('woocommerce_cs');
+    $wc_api = mpjwt_get_opt('woocommerce_api');
 
-            $method = strtoupper($req->get_method());
-            if (!in_array($method, ['GET', 'HEAD']) && !empty($body)) {
-                $args['body'] = json_encode($body);
-            }
+    $api_url = add_query_arg($query, trailingslashit($wc_api) . $wc_path);
 
-            $resp = wp_remote_request($api_url, $args);
+    $method = strtoupper($req->get_method());
+    $args = [
+        'method'  => $method,
+        'headers' => [
+            'Content-Type'  => 'application/json',
+            'Accept'        => 'application/json',
+            'Authorization' => 'Basic ' . base64_encode($wc_ck . ':' . $wc_cs)
+        ],
+        'timeout'  => 25,
+        'sslverify' => false,
+        'cookies' => [],
+    ];
 
-            if (is_wp_error($resp)) {
-                return new WP_Error('api_request_error', $resp->get_error_message(), ['status' => 500]);
-            }
+    if (!in_array($method, ['GET', 'HEAD']) && count($body) > 0) {
+        $args['body'] = json_encode($body);
+    }
 
-            $response_code = wp_remote_retrieve_response_code($resp);
-            $response_body = wp_remote_retrieve_body($resp);
-            $data = json_decode($response_body, true);
+    add_filter('http_response_cache_enabled', '__return_false');
+    $resp = wp_remote_request($api_url, $args);
+    remove_filter('http_response_cache_enabled', '__return_false');
 
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                return new WP_Error('invalid_woo_response', '上游接口返回数据格式错误', [
-                    'status' => $response_code ?: 502
-                ]);
-            }
+    if (is_wp_error($resp)) {
+        return new WP_Error('api_request_error', $resp->get_error_message(), ['status' => 500]);
+    }
 
-            return new WP_REST_Response($data, $response_code);
-        },
-        'permission_callback' => 'mpjwt_token_check'
-    ]);
+    $response_code = wp_remote_retrieve_response_code($resp);
+    $response_body = wp_remote_retrieve_body($resp);
+    $data = json_decode($response_body, true);
+
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        return new WP_Error('invalid_woo_response', '上游接口返回数据格式错误', [
+            'status' => $response_code ?: 502
+        ]);
+    }
+
+    ob_flush();
+    flush();
+    return new WP_REST_Response($data, $response_code);
+},
+// 🔴 这里改为 __return_true，不在路由层面拦截，移到回调内部手动校验
+'permission_callback' => '__return_true'
+]);
 });
 
 /**
