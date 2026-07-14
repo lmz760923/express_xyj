@@ -1,0 +1,523 @@
+.ppcp-collapsible-section {
+    cursor: pointer;
+    padding: 10px 19px;
+    background: white;
+    color: #2c3e50;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+    max-width: 862px;
+    margin: 10px 0px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    font-size: 14px !important;
+}
+.ppcp-collapsible-section:after {
+    content: '';
+    display: inline-block;
+    width: 24px; /* Increased width for larger size */
+    height: 24px; /* Increased height for larger size */
+    mask: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>') no-repeat center;
+    background-color: black; /* Color for the arrow */
+    transition: transform 0.3s;
+    transform: rotate(0deg); /* Default: Right-facing arrow */
+}
+.ppcp-collapsible-section.active:after {
+    transform: rotate(180deg); /* Active: Down-facing arrow */
+}
+.ppcp-collapsible-section.active:after {
+    transform: rotate(180deg); /* Active: Down-facing arrow */
+}
+.form-table {
+    max-width: 900px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(30, 30, 30);
+    outline: none;
+    margin-bottom: 10px !important;
+    margin-top: 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+}
+.woocommerce table.form-table th {
+    padding-left: 20px;
+}
+.wpg_paypal_checkout_gateway_setting_sepraer {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    vertical-align: middle;
+}
+.list {
+    list-style-type: circle;
+    margin-left: 42px;
+}
+p.submit {
+    display: block !important;
+}
+table tr:last-child td {
+    padding-bottom: 30px; /* Adjust spacing as needed */
+}
+table tr:first-child td {
+    padding-top: 25px; /* Adjust spacing as needed */
+}
+table tr:first-child th {
+    padding-top: 30px; /* Adjust spacing as needed */
+}
+
+.button.wpg-ppcp-disconnect {
+    margin-top: 20px;
+}
+.wpg_ppcp_paypal_connection {
+    padding: 12px 16px;
+    border-radius: 6px;
+    max-width: 550px;
+    box-shadow: 0 0 0 1px #e1e1e1;
+}
+.wpg_ppcp_paypal_connection {
+    margin-bottom: 16px;
+}
+@media screen and (max-width: 600px) {
+    .wpg_ppcp_paypal_connection {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+.wpg_ppcp_paypal_connection_status h3 {
+    font-size: 16px;
+    color: #46b450;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 4px;
+}
+
+.wpg_ppcp_paypal_connection_status p {
+    margin: 0;
+    color: #444;
+    font-size: 13px;
+}
+
+.select2-search__field {
+    min-width: 400px !important;
+}
+#connect-to-sandbox {
+    vertical-align: middle;
+}
+#connect-to-production {
+    vertical-align: middle;
+}
+.wpg_paypal_checkout_gateway_manual_credential_input {
+    vertical-align: middle;
+}
+table::after {
+    content: '';
+    display: block;
+    height: 20px; /* Adjust the height as needed */
+}
+.woocommerce table.form-table .forminp {
+    display: table-cell !important;
+    position: relative;
+}
+#woocommerce_wpg_paypal_checkout_description {
+    width: 600px;
+    resize: vertical;
+}
+/* Wrapper + header */
+.wpg-ch-wrap{
+    max-width:900px;
+    background:#fff;
+    border:1px solid #dcdcdc;
+}
+.wpg-ch-title{
+    margin:16px 16px 4px !important;
+    font-size:17px;
+    font-weight:600;
+    color:#1d2327
+}
+.wpg-ch-sub{
+    margin:0 16px 12px;
+    color:#646970
+}
+
+/* List */
+.wpg-ch-list{
+    border-top:1px solid #e6e7e9
+}
+
+/* Row */
+.wpg-ch-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:16px;
+    border-top:1px solid #e6e7e9;
+    background:#fff
+}
+.wpg-ch-item:first-child{
+    border-top:none
+}
+
+/* Left cluster */
+.wpg-ch-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    min-width:0
+}
+.wpg-ch-logo{
+    width:75px;
+    height:75px;
+    border-radius:6px;
+    object-fit:contain;
+    background:#fff;
+    flex:0 0 auto
+}
+.wpg-ch-text{
+    min-width:0
+}
+.wpg-ch-line1{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap
+}
+.wpg-ch-name{
+    font-weight:600;
+    color:#1d2327;
+    text-decoration:none;
+    font-size: 14px;
+}
+.wpg-ch-name:hover{
+    color:#135e96;
+    text-decoration:underline
+}
+.wpg-ch-chip{
+    color:#757575;
+    border:1px solid #757575;
+    border-radius:999px;
+    padding:2px 8px;
+    font-size:12px;
+    line-height:18px
+}
+.wpg-ch-desc{
+    color:#2c3338;
+    margin-top:4px;
+    max-width:720px
+}
+
+/* Right button */
+.wpg-ch-right{
+    flex:0 0 auto
+}
+.wpg-ch-btn{
+    white-space:nowrap
+}
+
+/* Make rows stack on narrow screens */
+@media (max-width: 720px){
+    .wpg-ch-item{
+        flex-direction:column;
+        align-items:flex-start
+    }
+    .wpg-ch-right{
+        width:100%
+    }
+    .wpg-ch-btn{
+        width:auto
+    }
+}
+
+/* Dark mode */
+body.is-dark-theme .wpg-ch-wrap{
+    background:#1e1f24;
+    border-color:#2a2f33
+}
+body.is-dark-theme .wpg-ch-title{
+    color:#e2e4e7
+}
+body.is-dark-theme .wpg-ch-sub{
+    color:#9aa0a6
+}
+body.is-dark-theme .wpg-ch-item{
+    background:#1e1f24;
+    border-color:#2a2f33
+}
+body.is-dark-theme .wpg-ch-name{
+    color:#e2e4e7
+}
+body.is-dark-theme .wpg-ch-name:hover{
+    color:#8cc8ff
+}
+body.is-dark-theme .wpg-ch-desc{
+    color:#c3c4c7
+}
+body.is-dark-theme .wpg-ch-chip{
+    background:#0b2940;
+    color:#8cc8ff;
+    border-color:#183a57
+}
+.ppcp-google-pay-notice-box {
+    padding: 12px 16px;
+    line-height: 1.5;
+    background-color: #fff;
+    color: #1e1e1e;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04), 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+    max-width: 864px;
+    border-left: 4px solid #ffb900;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.nexa-spinner-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nexa-loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    border-top: 3px solid #007cba;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.woo-connect-notice {
+    display:none;
+}
+.wpg-paypal-onboard-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 248px;
+}
+.wpg-paypal-connect-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.wpg-paypal-connect-button {
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.wpg-paypal-recommend {
+    font-size: 11px;
+    color: #2f7d32;
+    font-weight: 600;
+    background: #e6f4ea;
+    padding: 6px 6px;
+    border-radius: 4px;
+}
+.wpg-paypal-separator {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 5px;
+    color: #827a7a;
+    align-self: center;
+}
+.wpg-paypal-separator span {
+    color: #eeeded;
+}
+.wpg_paypal_checkout_gateway_manual_credential_input {
+    font-size: 13px;
+    text-decoration: underline;
+    color: #0073aa;
+    align-self: center;
+}
+.wpg_paypal_checkout_gateway_manual_credential_input:hover {
+    color: #005177;
+}
+#woocommerce_wpg_paypal_checkout_sandbox ~ .select2-container {
+    min-width: 249px !important;
+}
+body.woocommerce_page_wc-settings #wpbody-content {
+    background: #F0F0F1 !important;
+    padding-bottom: 0;
+}
+.wpg-ppcp-preview-render,
+.wpg-ppcp-preview-render * {
+  pointer-events: none !important;
+}
+:root {
+    --wpg_ppcp_display_success_popup_green: #1fbf75;
+    --wpg_ppcp_display_success_popup_text: #1d2327;
+    --wpg_ppcp_display_success_popup_muted: #6b7280;
+    --wpg_ppcp_display_success_popup_bg_overlay: rgba(0, 0, 0, 0.55);
+    --wpg_ppcp_display_success_popup_radius: 14px;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                 Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f7fa;
+    color: var(--wpg_ppcp_display_success_popup_text);
+  }
+
+  /* ---------- Modal ---------- */
+  .wpg_ppcp_display_success_popup {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 24px;
+  }
+
+  .wpg_ppcp_display_success_popup.is_open {
+    display: flex;
+  }
+
+  .wpg_ppcp_display_success_popup_overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--wpg_ppcp_display_success_popup_bg_overlay);
+  }
+
+  .wpg_ppcp_display_success_popup_dialog {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: var(--wpg_ppcp_display_success_popup_radius);
+    padding: 36px 36px 32px;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    animation: wpg_ppcp_display_success_popup_popup 0.35s ease-out;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  @keyframes wpg_ppcp_display_success_popup_popup {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .wpg_ppcp_display_success_popup_close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #9ca3af;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .wpg_ppcp_display_success_popup_close:hover {
+    color: #111827;
+  }
+
+  /* ---------- Icon ---------- */
+  .wpg_ppcp_display_success_popup_icon {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: rgba(31, 191, 117, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wpg_ppcp_display_success_popup_green);
+  }
+
+  .wpg_ppcp_display_success_popup_icon svg {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* ---------- Text ---------- */
+  .wpg_ppcp_display_success_popup_title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 8px 0 10px;
+  }
+
+  .wpg_ppcp_display_success_popup_desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--wpg_ppcp_display_success_popup_muted);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .wpg_ppcp_display_success_popup_desc strong {
+    color: #111827;
+  }
+
+  /* ---------- Footer ---------- */
+  .wpg_ppcp_display_success_popup_footer {
+    margin-top: 26px;
+  }
+
+  .wpg_ppcp_display_success_popup_btn {
+    padding: 10px 22px;
+    background: var(--wpg_ppcp_display_success_popup_green);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+
+  .wpg_ppcp_display_success_popup_btn:hover {
+    background: #17a866;
+  }
+
+  /* ---------- Cracker burst (confetti) ---------- */
+  .wpg_ppcp_display_success_popup_burst_layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .wpg_ppcp_display_success_popup_confetti {
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    opacity: 0;
+    transform: translate3d(0,0,0) rotate(0deg);
+    border-radius: 2px;
+    animation: wpg_ppcp_display_success_popup_confetti_fly var(--wpg_ppcp_display_success_popup_dur) cubic-bezier(.18,.88,.2,1) forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes wpg_ppcp_display_success_popup_confetti_fly {
+    0% {
+      opacity: 1;
+      transform: translate3d(var(--wpg_ppcp_display_success_popup_x0), var(--wpg_ppcp_display_success_popup_y0), 0) rotate(0deg);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(var(--wpg_ppcp_display_success_popup_x1), var(--wpg_ppcp_display_success_popup_y1), 0) rotate(var(--wpg_ppcp_display_success_popup_rot));
+    }
+  }
+  #footer-thankyou {
+  display: none !important;
+}

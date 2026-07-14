@@ -1,0 +1,6 @@
+2026-07-14T07:21:17+00:00 INFO Email "new_order" for order #310 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"lm","order":310}
+2026-07-14T07:21:18+00:00 INFO Email "customer_processing_order" for order #310 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"guest","order":310}
+2026-07-14T07:35:00+00:00 INFO Email "new_order" for order #311 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"lm","order":311}
+2026-07-14T07:35:04+00:00 INFO Email "customer_processing_order" for order #311 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"guest","order":311}
+2026-07-14T07:54:27+00:00 INFO Email "new_order" for order #367 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"lm","order":367}
+2026-07-14T07:54:28+00:00 INFO Email "customer_processing_order" for order #367 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"guest","order":367}

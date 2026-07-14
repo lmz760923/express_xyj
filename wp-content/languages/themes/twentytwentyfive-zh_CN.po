@@ -1082,11 +1082,6 @@ msgstr "标题和段落位于左侧，图片位于右侧。"
 msgid "About the event"
 msgstr "关于活动"
 
-#: patterns/heading-and-paragraph-with-image.php:27
-msgctxt "Event Overview Text."
-msgid "Held over a weekend, the event is structured around a series of exhibitions, workshops, and panel discussions. The exhibitions showcase a curated selection of photographs that tell compelling stories from various corners of the globe, each image accompanied by detailed narratives that provide context and deeper insight into the historical significance of the scenes depicted. These photographs are drawn from the archives of renowned photographers, as well as emerging talents, ensuring a blend of both classical and contemporary perspectives."
-msgstr "活动在周末举行，围绕一系列展览、研讨会和小组讨论展开。展览展示了经过精心策划的精选摄影作品，这些作品讲述了来自世界各个角落的引人入胜的故事，每张图片都配有详细的解说，提供了背景资料，让人们更深入地了解所描绘场景的历史意义。这些照片来自知名摄影师和新秀的档案，确保了古典和现代视角的融合。"
-
 #: patterns/heading-and-paragraph-with-image.php:36
 msgctxt "Alt text for Overview picture."
 msgid "Cliff Palace, Colorado"
@@ -1115,6 +1110,11 @@ msgstr "《故事集》"
 msgctxt "Content of the hero section."
 msgid "A fine collection of moments in time featuring photographs from Louis Fleckenstein, Paul Strand and Asahachi Kōno."
 msgstr "路易斯-弗莱肯施泰因、保罗-斯特兰德和浅八光之的摄影作品，展现了时间的精彩瞬间。"
+
+#: patterns/heading-and-paragraph-with-image.php:27
+msgctxt "Event Overview Text."
+msgid "Held over a weekend, the event is structured around a series of exhibitions, workshops, and panel discussions. The exhibitions showcase a curated selection of photographs that tell compelling stories from various corners of the globe, each image accompanied by detailed narratives that provide context and deeper insight into the historical significance of the scenes depicted. These photographs are drawn from the archives of renowned photographers, as well as emerging talents, ensuring a blend of both classical and contemporary perspectives."
+msgstr "活动在周末举行，围绕一系列展览、研讨会和小组讨论展开。展览展示了经过精心策划的精选摄影作品，这些作品讲述了来自世界各个角落的引人入胜的故事，每张图片都配有详细的解说，提供了背景资料，让人们更深入地了解所描绘场景的历史意义。这些照片来自知名摄影师和新秀的档案，确保了古典和现代视角的融合。"
 
 #: patterns/hero-book.php:46
 msgctxt "CTA text of the hero section."

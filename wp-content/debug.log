@@ -3320,3 +3320,180 @@
 [13-Jul-2026 07:24:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
 [13-Jul-2026 07:24:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
 [13-Jul-2026 07:24:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 07:38:26 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 07:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 07:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 07:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 07:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 07:38:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 07:38:27 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 07:38:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 07:38:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 07:38:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 07:38:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 07:38:27 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 07:38:45 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 07:38:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 07:38:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 07:38:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 07:38:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 07:38:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 07:38:47 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 07:38:47 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 07:38:47 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 07:38:47 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 07:38:47 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 07:38:47 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 07:41:03 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 10:21:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-includes/embed.php:813) in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 10:21:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-includes/embed.php:813) in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 10:21:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-includes/embed.php:813) in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 10:21:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /var/www/html/wp-includes/embed.php:813) in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:28:50 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:28:50 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:28:50 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:29:41 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:29:41 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:29:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:30:15 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:30:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:30:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:30:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:30:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:30:15 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:30:54 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:30:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:30:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:30:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:30:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:30:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:30:55 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:30:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:30:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:30:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:30:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:30:55 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:31:03 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 12:31:06 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 12:33:21 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:33:21 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:33:21 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:33:21 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:33:21 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:33:21 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:33:22 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:33:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:33:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:33:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:33:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:33:22 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:35:23 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:35:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:35:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:35:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:35:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:35:23 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 12:35:25 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 12:35:25 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 12:35:25 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 12:35:25 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 12:35:25 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 12:35:25 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:22:32 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:22:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:22:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:22:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:22:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:22:32 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:22:32 UTC] Automatic updates starting...
+[13-Jul-2026 14:22:33 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:22:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:22:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:22:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:22:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:22:33 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:22:34 UTC] Automatic updates complete.
+[13-Jul-2026 14:23:19 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:23:19 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:23:19 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:24:44 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:24:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:24:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:24:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:24:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:24:44 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:29:21 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:28 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:31 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:33 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:34 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:37 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:41 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:44 UTC] PHP Deprecated:  Function libxml_disable_entity_loader() is deprecated in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 713
+[13-Jul-2026 14:29:59 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:29:59 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:30:14 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:30:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:30:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:30:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:30:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:30:14 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:30:16 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:30:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:30:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:30:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:30:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:30:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:35:34 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:35:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:35:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:35:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:35:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:35:34 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:36:11 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:36:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:36:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:36:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:36:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:36:11 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[13-Jul-2026 14:36:12 UTC] PHP Notice:  ob_flush(): Failed to flush buffer. No buffer to flush in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 301
+[13-Jul-2026 14:36:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-includes/rest-api/class-wp-rest-server.php on line 1897
+[13-Jul-2026 14:36:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 141
+[13-Jul-2026 14:36:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 142
+[13-Jul-2026 14:36:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 143
+[13-Jul-2026 14:36:12 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/wp-content/plugins/mini-jwt-compat/mini-jwt-compat.php on line 144
+[14-Jul-2026 02:07:09 UTC] Automatic updates starting...
+[14-Jul-2026 02:07:11 UTC] Automatic updates complete.
+[14-Jul-2026 05:17:31 UTC] PHP Warning:  get_core_checksums(): 发生了预料之外的错误。 WordPress.org 或是此服务器的配置可能出了一些问题。如果您持续遇到困难，请试试<a href="https://cn.wordpress.org/support/forums/">支持论坛</a>。 （WordPress 无法建立到 WordPress.org 的安全连接，请联系您的服务器管理员。） in /var/www/html/wp-includes/functions.php on line 6170
+[14-Jul-2026 07:02:30 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6170
